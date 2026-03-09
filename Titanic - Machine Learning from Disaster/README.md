@@ -1,170 +1,235 @@
-Titanic Survival Prediction
+# 🚢 Titanic Survival Prediction
+Machine Learning | Data Science | Kaggle
 
-This project predicts passenger survival on the Titanic using machine learning.
+# 🚢 Titanic Survival Prediction
 
-The goal is to analyze the dataset, perform feature engineering, train multiple models, and generate predictions for Kaggle submission.
+A machine learning project that predicts whether a passenger survived the Titanic disaster using structured tabular data.
 
-Dataset
+This project demonstrates a full **data science workflow**, including exploratory data analysis, feature engineering, model training, evaluation, and Kaggle submission generation.
 
-The dataset comes from the Kaggle Titanic competition.
+---
 
-Files used:
+# 📊 Dataset
 
+The dataset comes from the Kaggle competition:
+
+**Titanic - Machine Learning from Disaster**
+
+It contains passenger information such as:
+
+* Passenger class
+* Name
+* Sex
+* Age
+* Fare
+* Family relationships
+* Embarkation port
+
+Files used in this project:
+
+```
 train.csv
-
 test.csv
+```
 
-Main features include:
+---
 
-Passenger class
+# 📁 Project Structure
 
-Sex
+```
+titanic-survival-prediction
+│
+├── data
+│   ├── train.csv
+│   └── test.csv
+│
+├── notebook
+│   └── titanic_full_ds_project.ipynb
+│
+├── submission
+│   └── submission.csv
+│
+├── README.md
+└── requirements.txt
+```
 
-Age
+---
 
-Fare
+# 🔎 Project Workflow
 
-Family relationships
+This project follows a standard **data science pipeline**.
 
-Embarkation port
+1. Data Loading
+2. Data Inspection
+3. Exploratory Data Analysis (EDA)
+4. Feature Engineering
+5. Data Preprocessing
+6. Model Training
+7. Cross Validation
+8. Feature Importance Analysis
+9. Model Comparison
+10. Ensemble Prediction
+11. Kaggle Submission File Generation
 
-Project Workflow
+---
 
-The project follows a typical data science pipeline:
+# 📈 Exploratory Data Analysis (EDA)
 
-Data loading
+EDA was performed to identify patterns related to passenger survival.
 
-Data inspection
+### Survival by Sex
 
-Exploratory Data Analysis (EDA)
+Female passengers had a significantly higher survival rate compared to male passengers.
 
-Feature engineering
+### Survival by Passenger Class
 
-Data preprocessing
+Passengers in **first class** had the highest survival rate, while **third class** passengers had the lowest.
 
-Model training
+### Survival by Age
 
-Cross validation
+Younger passengers tended to have a higher survival probability.
 
-Feature importance analysis
+These insights guided the feature engineering process.
 
-Model comparison
+---
 
-Ensemble prediction
+# 🧠 Feature Engineering
 
-Kaggle submission file generation
+To improve model performance, several new features were created.
 
-Exploratory Data Analysis
+### FamilySize
 
-EDA revealed several important patterns:
-
-Survival by Sex
-
-Female passengers had a much higher survival rate than males.
-
-Survival by Passenger Class
-
-First-class passengers had a higher survival rate compared to second and third class.
-
-Survival by Age
-
-Children had a higher survival probability compared to adults.
-
-Feature Engineering
-
-Several new features were created to improve model performance.
-
-FamilySize
-
+```
 FamilySize = SibSp + Parch + 1
+```
 
 This represents the total number of family members traveling together.
 
-IsAlone
+---
+
+### IsAlone
 
 Passengers traveling alone may have different survival probabilities.
 
-Title Extraction
+```
+IsAlone = FamilySize == 1
+```
 
-Passenger titles were extracted from the Name column.
+---
+
+### Title Extraction
+
+Passenger titles were extracted from the **Name** column.
 
 Examples:
 
+```
 Mr
-
 Mrs
-
 Miss
-
 Master
+```
 
-These titles indirectly capture gender and age information.
+These titles indirectly encode **gender and age information**.
 
-Models Used
+---
 
-Two machine learning models were trained.
+# 🤖 Machine Learning Models
 
-Random Forest
+Two machine learning models were trained and evaluated.
 
-A tree-based ensemble model that performs well on structured tabular datasets.
+## Random Forest
 
-LightGBM
+Random Forest is an ensemble learning method based on decision trees.
 
-A gradient boosting framework that is fast and highly effective for structured data problems.
+Advantages:
 
-Model Evaluation
+* Handles tabular data well
+* Robust to overfitting
+* Easy to interpret feature importance
 
-Cross-validation was used to evaluate model performance.
+---
+
+## LightGBM
+
+LightGBM is a gradient boosting framework optimized for performance and speed.
+
+Advantages:
+
+* Fast training speed
+* High predictive performance
+* Effective for structured datasets
+
+---
+
+# 📊 Model Evaluation
+
+Models were evaluated using **cross-validation**.
 
 Typical results:
 
+```
 RandomForest Accuracy ≈ 0.80
 LightGBM Accuracy ≈ 0.82
+```
 
-Ensemble Method
+LightGBM generally produced slightly better results.
 
-Predictions from both models were combined using averaging.
+---
 
-Final prediction:
+# 🔗 Ensemble Method
 
+To improve prediction robustness, predictions from both models were combined.
+
+```
 final_prediction = (rf_prediction + lgb_prediction) / 2
+```
 
-Ensembling improves robustness and performance.
+Ensembling helps reduce model variance and improve overall performance.
 
-Kaggle Submission
+---
 
-The final predictions are saved as:
+# 🏆 Kaggle Submission
 
+Final predictions are saved as:
+
+```
 submission.csv
+```
 
 Format:
 
+```
 PassengerId,Survived
+892,0
+893,1
+894,0
+```
 
-This file can be directly submitted to Kaggle.
+This file can be directly submitted to the Kaggle competition.
 
-Technologies Used
+---
 
-Python
-Pandas
-NumPy
-Matplotlib
-Seaborn
-Scikit-learn
-LightGBM
+# 🛠 Technologies Used
 
-Project Goal
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Scikit-learn
+* LightGBM
 
-This project demonstrates a full machine learning workflow including:
+---
 
-data analysis
+# 🎯 Project Objective
 
-feature engineering
+The goal of this project is to demonstrate an **end-to-end machine learning workflow**, including:
 
-model training
+* data exploration
+* feature engineering
+* model training
+* model evaluation
+* prediction generation
 
-model evaluation
-
-prediction generation
-
-It serves as a portfolio project for data science and machine learning roles.
+This project serves as a **portfolio example for data science and machine learning roles**.
