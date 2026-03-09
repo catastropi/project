@@ -1,7 +1,4 @@
 # 🚢 Titanic Survival Prediction
-Machine Learning | Data Science | Kaggle
-
-# 🚢 Titanic Survival Prediction
 
 A machine learning project that predicts whether a passenger survived the Titanic disaster using structured tabular data.
 
