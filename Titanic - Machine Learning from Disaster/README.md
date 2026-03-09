@@ -205,6 +205,8 @@ PassengerId,Survived
 
 This file can be directly submitted to the Kaggle competition.
 
+Score: 0.70813
+
 ---
 
 # 🛠 Technologies Used
